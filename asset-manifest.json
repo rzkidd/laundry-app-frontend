@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/laundry-app-frontend/static/css/main.69c3e75d.css",
+    "main.js": "/laundry-app-frontend/static/js/main.df58cfbe.js",
+    "static/js/787.05c25fb1.chunk.js": "/laundry-app-frontend/static/js/787.05c25fb1.chunk.js",
+    "static/media/washing-machine.png": "/laundry-app-frontend/static/media/washing-machine.8f469ab71ff9b472f0f7.png",
+    "static/media/cleaning.png": "/laundry-app-frontend/static/media/cleaning.79a986b1518e72e82327.png",
+    "static/media/cloth.png": "/laundry-app-frontend/static/media/cloth.5053a78709d33b67a751.png",
+    "index.html": "/laundry-app-frontend/index.html",
+    "main.69c3e75d.css.map": "/laundry-app-frontend/static/css/main.69c3e75d.css.map",
+    "main.df58cfbe.js.map": "/laundry-app-frontend/static/js/main.df58cfbe.js.map",
+    "787.05c25fb1.chunk.js.map": "/laundry-app-frontend/static/js/787.05c25fb1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69c3e75d.css",
+    "static/js/main.df58cfbe.js"
+  ]
+}
