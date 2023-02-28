@@ -44,6 +44,7 @@ function Content(props) {
             id='main-content'
             style={{ 
                 backgroundColor: 'var(--ternary-color)', 
+                minHeight: '80vh',
                 height: 'auto',
                 borderTopLeftRadius: '3rem',
                 borderTopRightRadius: '3rem',
@@ -53,12 +54,12 @@ function Content(props) {
             className='position-absolute w-100 d-flex flex-column justify-content-between px-4 pt-5' 
         >
             <div className="row justify-content-between">
-                <div className="col-3">
+                <div className="col-12 mb-3">
                     <button type='button' 
                         className={(filterSelected == 'all') ? 
-                            'history-filter-btn btn w-100 border border-3 active'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2 active'
                             :
-                            'history-filter-btn btn w-100 border border-3'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2'
                         } 
                         style={{ color: 'var(--secondary-color)' }}
                         data-filter='all'
@@ -67,12 +68,12 @@ function Content(props) {
                         All
                     </button>
                 </div>
-                <div className="col-3">
+                <div className="col-4">
                     <button type='button' 
                         className={(filterSelected == '7_days') ? 
-                            'history-filter-btn btn w-100 border border-3 active'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2 active'
                             :
-                            'history-filter-btn btn w-100 border border-3'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2'
                         } 
                         style={{ color: 'var(--secondary-color)' }}
                         data-filter='7_days'
@@ -81,12 +82,12 @@ function Content(props) {
                         7 days
                     </button>
                 </div>
-                <div className="col-3">
+                <div className="col-4">
                     <button type='button' 
                         className={(filterSelected == '1_month') ? 
-                            'history-filter-btn btn w-100 border border-3 active'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2 active'
                             :
-                            'history-filter-btn btn w-100 border border-3'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2'
                         } 
                         style={{ color: 'var(--secondary-color)' }}
                         data-filter='1_month'
@@ -95,12 +96,12 @@ function Content(props) {
                         1 month
                     </button>
                 </div>
-                <div className="col-3">
+                <div className="col-4">
                     <button type='button' 
                         className={(filterSelected == '3_months') ? 
-                            'history-filter-btn btn w-100 border border-3 active'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2 active'
                             :
-                            'history-filter-btn btn w-100 border border-3'
+                            'history-filter-btn btn w-100 border border-3 text-center px-2'
                         } 
                         style={{ color: 'var(--secondary-color)' }}
                         data-filter='3_months'

@@ -20,7 +20,7 @@ a {
 }
 
 .main-content div a img{
-  height: 40%;
+  width: 70%;
 }
 
 .main-content div a h4{
@@ -50,6 +50,10 @@ button.history-filter-btn.active {
   border-color: var(--secondary-color) !important;
   background-color: var(--secondary-color) !important;
   color: #fff !important;
+}
+
+.main-content a h4 {
+  text-align: center;
 }
 
 /* @media screen and (max-width: 768px){

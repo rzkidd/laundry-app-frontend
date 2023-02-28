@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import * as Icon from 'react-bootstrap-icons'
 import {Link} from 'react-router-dom' 
 import ModalContent from './ModalContent';
@@ -7,17 +7,22 @@ import $ from 'jquery';
 import ModalNotification from './ModalNotification';
 import { render } from '@testing-library/react';
 import Loader from '../layouts/_Loader';
+import { ItemsContext } from './Washing';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggle } from '../reducer/loaderSlice';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
 function Content(props) {
-    let items = props.items
+    let items = useContext(ItemsContext)
     let [selectedItems, setSelectedItems] = [props.selectedItems, props.setSelectedItems]
-    let [loader, setLoader] = [props.loader, props.setLoader]
+    const loader = useSelector((state) => state.loader.value)
     const [checked, setChecked] = useState([])
     const [notifStatus, setNotifStatus] = useState();
     const [notifMessage, setNotifMessage] = useState();
     const [isShow, setIsShow] = useState(false);
+
+    const dispatch = useDispatch()
 
     const handleModal = () => {
         setIsShow(!isShow)
@@ -61,24 +66,26 @@ function Content(props) {
     function handleSubmit(){
         console.log('json body: ', JSON.stringify(selectedItems) )
         if (selectedItems.length != 0){
-            setLoader(true)
-            fetch(BACKEND_URL + 'items', {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify(selectedItems)
-            })
-            .then(response => response.json())
-            .then(response => {
-                console.log(response.message)
-                setNotifStatus(response.status)
-                setNotifMessage(response.message)
-                setLoader(false)
-                setIsShow(!isShow)
-                setSelectedItems([])
-                setChecked([])
-            })
+            dispatch(toggle(true))
+            setTimeout(() => {
+                fetch(BACKEND_URL + 'items', {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(selectedItems)
+                })
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response.message)
+                    setNotifStatus(response.status)
+                    setNotifMessage(response.message)
+                    dispatch(toggle(false))
+                    setIsShow(!isShow)
+                    setSelectedItems([])
+                    setChecked([])
+                })
+            }, 3000);
         } else {
             setNotifMessage('There are no items to be added')
             setIsShow(!isShow)
@@ -142,7 +149,6 @@ function Content(props) {
                 Done
             </button>
             <ModalContent 
-                items={items} 
                 selectedItems={selectedItems} 
                 setSelectedItems={setSelectedItems}
                 checked={checked}

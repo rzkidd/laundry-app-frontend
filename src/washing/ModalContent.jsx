@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import * as Icon from 'react-bootstrap-icons'
 import {Link} from 'react-router-dom' 
 import $ from 'jquery'
+import { ItemsContext } from './Washing';
 
 function ModalContent(props) {
-    let items = props.items
+    let items = useContext(ItemsContext)
     let [selectedItems, setSelectedItems] = [props.selectedItems, props.setSelectedItems]
     let [checked, setChecked] = [props.checked, props.setChecked]
     
